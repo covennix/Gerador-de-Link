@@ -2,23 +2,24 @@
     .container{
         height: auto; 
         width: 80vw; 
-        padding: 20px; 
-        
-    }
+        padding: 20px; }
+    
     input {
         width: calc(100% - 20px); 
         margin-bottom: 10px; 
     }
+    
     button {
         width: calc(50% - 10px); 
     }
     body{
-        background-color: rgb(122, 35, 122);
+        background-color: #196b10;
     }
 }
 
-body {
-    font-family: Arial, sans-serif;
+
+
+body {font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -33,11 +34,15 @@ body {
     background-color: #fff;
     padding: 30px;
     border-radius: 5px;
-    max-width: 400px;
+    max-width: 300px;
     width: 150%;
 }
 
-h1 {font-size: 24px;
+img {
+    width: 25px;}
+
+    
+h1 {font-size: 25px;
     margin-bottom: 20px;
 }
 
@@ -48,28 +53,26 @@ h1 {font-size: 24px;
     justify-content: center;
 }
 
-input[type="tel"] {
-    width: calc(100% - 140px);
+input {
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #8b8b8b;
-    font-size: 16px;
+    border-radius: 3px;
 }
 
 .error-msg {
     color: red;
 }
 
-.buttons button {
-    
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: #196b10;
-    font-size: 1px;
+button {background-color: green;
+    padding: 10px;
     cursor: pointer;
-}
-
+  }
+  .poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  
 .buttons button:hover {
     background-color: #1f8f1b;
 }
