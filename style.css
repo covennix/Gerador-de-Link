@@ -4,16 +4,13 @@
         width: 80vw; 
         padding: 20px; }
     
-    input {
-        width: calc(100% - 20px); 
+    input {width: calc(100% - 20px); 
         margin-bottom: 10px; 
     }
     
-    button {
-        width: calc(50% - 10px); 
+    button {width: calc(50% - 10px); 
     }
-    body{
-        background-color: #196b10;
+    body{background-color: #196b10;
     }
 }
 
@@ -32,9 +29,9 @@ body {font-family: Arial, sans-serif;
 .container {
     text-align: center;
     background-color: #fff;
-    padding: 30px;
+    padding: 50px;
     border-radius: 5px;
-    max-width: 300px;
+    max-width: 400px;
     width: 150%;
 }
 
@@ -72,8 +69,19 @@ button {background-color: green;
     font-style: normal;
   }
   
+  p{
+
+    font-size: 10px;
+    padding: 8px 0 0 0;
+    display: none;
+}
+
+.clickCopiar{ 
+
+}
+
   
-.buttons button:hover {
-    background-color: #1f8f1b;
+button:hover{
+    background-color: #d1fcd0;
 }
 

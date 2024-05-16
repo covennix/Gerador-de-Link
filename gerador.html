@@ -6,22 +6,23 @@
     <title>Gerador de Link Whatsapp</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
-
 </head>
 <body>
     <div class="container">
-       <h1>Gerador De Link  <img src="whatsapp.svg" ></h1>
-        <div>
-            <input maxlength="11" minlength="11" type="text"  placeholder="Telefone" id="input" style="border: 2px solid black; border-radius: 5px;">
-            <button id="gerarLink" style="border: 2px solid black; border-radius: 5px; background-color: green;" ><i style="color: white;" class="fas  fa-link"></i></button>
-            
-            <button id="copiarLink" style="border: 2px solid black; border-radius: 5px; background-color: green;"><i style="color: white;" class="fas fa-paper-plane"></i></button>
+        <h1>Gerador De Link <img src="whatsapp.svg" alt="WhatsApp Icon"></h1>
+        <div class="form-group">
+            <input type="tel" id="phone" name="phone" placeholder="Telefone" maxlength="15" style="border: 2px solid black; border-radius: 5px;">
+            <button id="gerarLink" style="border: 2px solid black; border-radius: 5px; background-color: green;">
+                <i style="color: white;" class="fas fa-link"></i>
+            </button>
+            <button id="abreLink" style="border: 2px solid black; border-radius: 5px; background-color: green;">
+                <i style="color: white;" class="fas fa-paper-plane"></i>
+            </button>
         </div>
-
-        </div>
+        <div id="link"></div>
+        <p id="clickCopiar">Clique no link para copiar</p>
     </div>
 </body>
 </html>
