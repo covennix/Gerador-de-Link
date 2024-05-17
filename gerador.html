@@ -13,16 +13,18 @@
     <div class="container">
         <h1>Gerador De Link <img src="whatsapp.svg" alt="WhatsApp Icon"></h1>
         <div class="form-group">
-            <input type="tel" id="phone" name="phone" placeholder="Telefone" maxlength="15" style="border: 2px solid black; border-radius: 5px;">
-            <button id="gerarLink" style="border: 2px solid black; border-radius: 5px; background-color: green;">
+            <input type="tel" id="phone" name="phone" placeholder="Telefone" maxlength="15">
+            <button id="gerarLink">
                 <i style="color: white;" class="fas fa-link"></i>
             </button>
-            <button id="abreLink" style="border: 2px solid black; border-radius: 5px; background-color: green;">
+            <button id="abreLink">
                 <i style="color: white;" class="fas fa-paper-plane"></i>
             </button>
         </div>
-        <div id="link"></div>
-        <p id="clickCopiar">Clique no link para copiar</p>
+        <div id="link-container">
+            <div id="link" style="display: none;"></div>
+            <p id="clickCopiar" style="display: none;">Clique no link para copiar</p>
+        </div>
     </div>
 </body>
 </html>

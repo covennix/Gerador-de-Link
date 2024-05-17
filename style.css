@@ -1,22 +1,5 @@
-@media screen and (max-width: 767px) {
-    .container{
-        height: auto; 
-        width: 80vw; 
-        padding: 20px; }
-    
-    input {width: calc(100% - 20px); 
-        margin-bottom: 10px; 
-    }
-    
-    button {width: calc(50% - 10px); 
-    }
-    body{background-color: #196b10;
-    }
-}
-
-
-
-body {font-family: Arial, sans-serif;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -32,14 +15,15 @@ body {font-family: Arial, sans-serif;
     padding: 50px;
     border-radius: 5px;
     max-width: 400px;
-    width: 150%;
+    width: 100%;
 }
 
 img {
-    width: 25px;}
+    width: 25px;
+}
 
-    
-h1 {font-size: 25px;
+h1 {
+    font-size: 25px;
     margin-bottom: 20px;
 }
 
@@ -53,35 +37,83 @@ h1 {font-size: 25px;
 input {
     padding: 10px;
     border-radius: 3px;
+    width: calc(100% - 20px);
+    margin-right: 10px;
 }
 
 .error-msg {
     color: red;
 }
 
-button {background-color: green;
+button {
+    background-color: green;
     padding: 10px;
     cursor: pointer;
-  }
-  .poppins-thin {
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 7px;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+button:hover {
+    background-color: #134719;
+}
+
+.poppins-thin {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: normal;
-  }
-  
-  p{
+}
 
+p {
     font-size: 10px;
     padding: 8px 0 0 0;
-    display: none;
+    
 }
 
-.clickCopiar{ 
+#link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
 
+#link {
+    font-size: smaller;
+    width: 388px;
+    height: 15px;
+    border-radius: 5px;
+    user-select: none;
+    padding: 2px 5px;
+    border: 1px solid rgb(54, 50, 50);
+    text-align: left;
+    
 }
 
-  
-button:hover{
-    background-color: #d1fcd0;
+
+
+@media screen and (max-width: 800px) {
+    .container {
+        height: auto;
+        width: 90vw;
+        padding: 30px;
+    }
+
+    input {
+        width: calc(50% - 1px);
+        margin-bottom: 1px;
+    }
+
+    button {
+        width: calc(20% - 1px);
+        background-color: #598b53;
+    }
+
+    body {
+        background-color: #598b53;
+    }
 }
 

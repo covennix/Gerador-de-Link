@@ -1,4 +1,4 @@
-// Seleção dos elementos
+//Variáveis
 const input = document.getElementById('phone');
 const gerarLinkBtn = document.getElementById('gerarLink');
 const abreLinkBtn = document.getElementById('abreLink');
@@ -30,17 +30,19 @@ function validarTelefone(numeroTelefone) {
     if (numeroTelefone.length === 11) {
         gerarLinkBtn.disabled = false;
         abreLinkBtn.disabled = false;
-        input.style.color = "green"; 
+        input.style.color = "green";
     } else {
         gerarLinkBtn.disabled = true;
         abreLinkBtn.disabled = true;
-        input.style.color = "initial"; 
+        input.style.color = "initial";
     }
 }
 
-// Exibir link logo abaixo do input do telefone
+// Exibir link logo abaixo do input telefone
 function exibirLink(link) {
+    linkDiv.style.display = "flex";
     linkDiv.innerHTML = `<a href="#" id="whatsappLink">${link}</a>`;
+    clickCopiar.style.display = "flex";
 }
 
 // Gerar link do WhatsApp
@@ -54,11 +56,9 @@ function gerarLink(numeroTelefone) {
     }
 }
 
-
-// tudo errado pra baixo
 // Copiar link para área de transferência
 gerarLinkBtn.addEventListener("click", function() {
-    var phone = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    var phone = input.value.replace(/\D/g, '');
     var link = gerarLink(phone);
     if (link) {
         exibirLink(link);
@@ -66,27 +66,37 @@ gerarLinkBtn.addEventListener("click", function() {
     }
 });
 
-// Evento para copiar o link quando clicado
+// Copiar o link quando clicado
 linkDiv.addEventListener("click", function(event) {
     if (event.target.id === "whatsappLink") {
         event.preventDefault();
         var link = event.target.textContent;
-        copiarParaAreaDeTransferencia(link);
-        clickCopiar.innerText = "Link copiado para área de transferência";
+        navigator.clipboard.writeText(link).then(() => {
+            clickCopiar.innerText = "Link copiado para área de transferência";
+        });
     }
 });
 
-// Função para copiar texto para a área de transferência
-function copiarParaAreaDeTransferencia(texto) {
-    var inputTemporario = document.createElement("input");
-    inputTemporario.value = texto;
-    document.body.appendChild(inputTemporario);
-    inputTemporario.select();
-    document.execCommand("copy");
-    document.body.removeChild(inputTemporario);
-}
-
-// Limpar mensagem ao clicar no input de telefone
-input.addEventListener("click", function() {
-    clickCopiar.innerText = "Clique no link para copiar";
+// Abrir o link
+abreLinkBtn.addEventListener("click", function() {
+    var phone = input.value.replace(/\D/g, '');
+    var link = gerarLink(phone);
+    if (link) {
+        window.open(link, "_blank");
+    }
 });
+
+// Limpar mensagem 
+input.addEventListener("click", function() {
+    if (clickCopiar.innerText === "Link copiado para área de transferência") {
+        clickCopiar.style.display = "none";
+        clickCopiar.innerText = "Clique no link para copiar";
+        linkDiv.innerText = ""; 
+        linkDiv.style.display = "none"; 
+        input.value = ""; 
+        gerarLinkBtn.disabled = true; 
+        copiarLinkBtn.disabled = true; 
+    }
+});
+
+
