@@ -38,9 +38,11 @@ function validarTelefone(numeroTelefone) {
     }
 }
 
-// Exibir link logo abaixo do input do telefone
+// Exibir link logo abaixo do input telefone
 function exibirLink(link) {
+    linkDiv.style.display = "flex";
     linkDiv.innerHTML = `<a href="#" id="whatsappLink">${link}</a>`;
+    clickCopiar.style.display = "flex";
 }
 
 // Gerar link do WhatsApp
@@ -54,11 +56,9 @@ function gerarLink(numeroTelefone) {
     }
 }
 
-
-// tudo errado pra baixo
 // Copiar link para área de transferência
 gerarLinkBtn.addEventListener("click", function() {
-    var phone = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    var phone = input.value.replace(/\D/g, ''); 
     var link = gerarLink(phone);
     if (link) {
         exibirLink(link);
@@ -66,27 +66,28 @@ gerarLinkBtn.addEventListener("click", function() {
     }
 });
 
-// Evento para copiar o link quando clicado
+// Copiar o link quando clicado
 linkDiv.addEventListener("click", function(event) {
     if (event.target.id === "whatsappLink") {
         event.preventDefault();
         var link = event.target.textContent;
-        copiarParaAreaDeTransferencia(link);
-        clickCopiar.innerText = "Link copiado para área de transferência";
+        navigator.clipboard.writeText(link).then(() => {
+            clickCopiar.innerText = "Link copiado para área de transferência";
+        });
     }
 });
 
-// Função para copiar texto para a área de transferência
-function copiarParaAreaDeTransferencia(texto) {
-    var inputTemporario = document.createElement("input");
-    inputTemporario.value = texto;
-    document.body.appendChild(inputTemporario);
-    inputTemporario.select();
-    document.execCommand("copy");
-    document.body.removeChild(inputTemporario);
-}
+// Ação para abrir o link
+abreLinkBtn.addEventListener("click", function() {
+    var phone = input.value.replace(/\D/g, ''); 
+    var link = gerarLink(phone);
+    if (link) {
+        window.open(link, "_blank");
+    }
+});
 
 // Limpar mensagem ao clicar no input de telefone
 input.addEventListener("click", function() {
+    clickCopiar.style.display = "none";
     clickCopiar.innerText = "Clique no link para copiar";
 });
